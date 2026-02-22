@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@import "@fontsource/ubuntu/400.css";
+@import "@fontsource/ubuntu/700.css";
+
+@theme {
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --color-brand: #3772b5;
+}

@@ -16,6 +16,7 @@ jest.mock("@react-pdf/renderer", () => ({
   Text: ({ children }) => <span>{children}</span>,
   Link: ({ children }) => <span>{children}</span>,
   StyleSheet: { create: (s) => s },
+  Font: { register: jest.fn() },
 }));
 
 test("renders resume with name and language buttons", () => {
