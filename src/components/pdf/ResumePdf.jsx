@@ -1,17 +1,17 @@
-import { Document, Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, View, Text, Link, StyleSheet } from "@react-pdf/renderer";
 
 const colors = {
-  black: '#000000',
-  darkGray: '#333333',
-  gray: '#555555',
-  lightGray: '#888888',
-  link: '#2563EB',
-  sectionBorder: '#000000',
+  black: "#000000",
+  darkGray: "#333333",
+  gray: "#555555",
+  lightGray: "#888888",
+  link: "#2563EB",
+  sectionBorder: "#000000",
 };
 
 const styles = StyleSheet.create({
   page: {
-    fontFamily: 'Helvetica',
+    fontFamily: "Helvetica",
     fontSize: 9,
     color: colors.darkGray,
     paddingTop: 30,
@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
   },
   // Header
   headerName: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 22,
     color: colors.black,
     marginBottom: 4,
   },
   headerLinks: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 12,
     fontSize: 8.5,
     marginBottom: 16,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   // Layout
   columns: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 20,
   },
   leftColumn: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   // Sections
   sectionTitle: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 13,
     color: colors.black,
     borderBottomWidth: 1,
@@ -60,12 +60,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   jobHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 1,
   },
   jobTitle: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 10,
     color: colors.black,
   },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   bullet: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 2,
     paddingLeft: 4,
   },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   // Skills
   skillCategory: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 9,
     color: colors.black,
     marginBottom: 2,
@@ -103,13 +103,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   skillItem: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 1,
     paddingLeft: 4,
   },
   // Education
   eduInstitution: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 9,
     color: colors.black,
   },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   projectName: {
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: "Helvetica-Bold",
     fontSize: 9,
     color: colors.black,
   },
