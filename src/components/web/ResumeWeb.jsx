@@ -24,8 +24,8 @@ function ExperienceItem({ job }) {
       )}
       {job.bullets.length > 0 && (
         <ul className="mt-1 space-y-0.5 pl-2">
-          {job.bullets.map((bullet, i) => (
-            <li key={i} className="text-xs text-gray-500 flex gap-1">
+          {job.bullets.map((bullet) => (
+            <li key={bullet} className="text-xs text-gray-500 flex gap-1">
               <span className="shrink-0">-</span>
               <span>{bullet}</span>
             </li>
@@ -42,14 +42,14 @@ function SkillsSection({ skills, labels }) {
       <h2 className="text-lg font-bold text-black border-b border-black pb-0.5 mb-2">{labels.skills}</h2>
       <p className="font-bold text-sm text-black mb-1">{labels.primaryStack}</p>
       <ul className="pl-2 mb-3">
-        {skills.primary.map((skill, i) => (
-          <li key={i} className="text-xs text-gray-500">- {skill}</li>
+        {skills.primary.map((skill) => (
+          <li key={skill} className="text-xs text-gray-500">- {skill}</li>
         ))}
       </ul>
       <p className="font-bold text-sm text-black mb-1">{labels.secondaryTools}</p>
       <ul className="pl-2 mb-3">
-        {skills.secondary.map((skill, i) => (
-          <li key={i} className="text-xs text-gray-500">- {skill}</li>
+        {skills.secondary.map((skill) => (
+          <li key={skill} className="text-xs text-gray-500">- {skill}</li>
         ))}
       </ul>
     </div>
@@ -71,8 +71,8 @@ function ProjectsSection({ projects, label }) {
   return (
     <div>
       <h2 className="text-lg font-bold text-black border-b border-black pb-0.5 mb-2">{label}</h2>
-      {projects.map((project, i) => (
-        <div key={i} className="mb-2">
+      {projects.map((project) => (
+        <div key={project.name} className="mb-2">
           <p className="font-bold text-sm text-black">{project.name}</p>
           <p className="text-xs text-gray-500">{project.description}</p>
           <a href={project.url} className="text-xs text-blue-600 hover:underline break-all">{project.url}</a>
@@ -99,8 +99,8 @@ function ResumeWeb({ data }) {
       <div className="flex gap-6">
         <div className="flex-[3]">
           <h2 className="text-lg font-bold text-black border-b border-black pb-0.5 mb-2">{labels.experience}</h2>
-          {data.experience.map((job, i) => (
-            <ExperienceItem key={i} job={job} />
+          {data.experience.map((job) => (
+            <ExperienceItem key={`${job.title}-${job.company}`} job={job} />
           ))}
         </div>
         <div className="flex-[1.3]">

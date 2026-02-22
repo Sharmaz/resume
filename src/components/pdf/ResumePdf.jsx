@@ -172,8 +172,8 @@ function ExperienceItem({ job }) {
       {job.description && (
         <Text style={styles.jobDescription}>{job.description}</Text>
       )}
-      {job.bullets.map((bullet, i) => (
-        <View style={styles.bullet} key={i}>
+      {job.bullets.map((bullet) => (
+        <View style={styles.bullet} key={bullet}>
           <Text style={styles.bulletDash}>-</Text>
           <Text style={styles.bulletText}>{bullet}</Text>
         </View>
@@ -186,8 +186,8 @@ function ExperienceSection({ experience, label }) {
   return (
     <View>
       <Text style={styles.sectionTitle}>{label}</Text>
-      {experience.map((job, i) => (
-        <ExperienceItem key={i} job={job} />
+      {experience.map((job) => (
+        <ExperienceItem key={`${job.title}-${job.company}`} job={job} />
       ))}
     </View>
   );
@@ -199,8 +199,8 @@ function SkillsSection({ skills, labels }) {
       <Text style={styles.sectionTitle}>{labels.skills}</Text>
       <Text style={styles.skillCategory}>{labels.primaryStack}</Text>
       <View style={styles.skillList}>
-        {skills.primary.map((skill, i) => (
-          <View style={styles.skillItem} key={i}>
+        {skills.primary.map((skill) => (
+          <View style={styles.skillItem} key={skill}>
             <Text style={styles.bulletDash}>-</Text>
             <Text style={styles.bulletText}>{skill}</Text>
           </View>
@@ -208,8 +208,8 @@ function SkillsSection({ skills, labels }) {
       </View>
       <Text style={styles.skillCategory}>{labels.secondaryTools}</Text>
       <View style={styles.skillList}>
-        {skills.secondary.map((skill, i) => (
-          <View style={styles.skillItem} key={i}>
+        {skills.secondary.map((skill) => (
+          <View style={styles.skillItem} key={skill}>
             <Text style={styles.bulletDash}>-</Text>
             <Text style={styles.bulletText}>{skill}</Text>
           </View>
@@ -234,8 +234,8 @@ function ProjectsSection({ projects, label }) {
   return (
     <View>
       <Text style={styles.sectionTitle}>{label}</Text>
-      {projects.map((project, i) => (
-        <View style={styles.projectContainer} key={i}>
+      {projects.map((project) => (
+        <View style={styles.projectContainer} key={project.name}>
           <Text style={styles.projectName}>{project.name}</Text>
           <Text style={styles.projectDescription}>{project.description}</Text>
           <Link src={project.url} style={styles.projectLink}>{project.url}</Link>
