@@ -15,15 +15,15 @@ function Header({ header }) {
 function ExperienceItem({ job }) {
   const titleText = job.company ? `${job.title} @ ${job.company}` : job.title;
   return (
-    <div className="mb-3">
+    <div className="mb-2">
       <div className="flex justify-between items-baseline">
         <h3 className="font-bold text-black text-sm">{titleText}</h3>
-        <span className="text-xs text-gray-400 shrink-0 ml-2">{job.period}</span>
+        <span className="text-sm text-gray-400 shrink-0 ml-2">{job.period}</span>
       </div>
       {job.bullets.length > 0 && (
-        <ul className="mt-1 space-y-0.5 pl-2">
+        <ul className="mt-1 space-y-1 pl-2">
           {job.bullets.map((bullet) => (
-            <li key={bullet} className="text-xs text-gray-500 flex gap-1">
+            <li key={bullet} className="text-[12.5px] text-gray-500 flex gap-1">
               <span className="shrink-0">-</span>
               <span>{bullet}</span>
             </li>
@@ -47,7 +47,7 @@ function SkillsSection({ skills, label }) {
     <div>
       <SectionHeading>{label}</SectionHeading>
       {skills.map((group) => (
-        <div key={group.category} className="mb-2">
+        <div key={group.category} className="mb-1">
           <p className="font-bold text-sm text-black mb-0.5">{group.category}</p>
           <ul className="pl-2">
             {group.items.map((item) => (
@@ -66,7 +66,7 @@ function EducationSection({ education, label }) {
       <SectionHeading>{label}</SectionHeading>
       <p className="font-bold text-sm text-black">{education.institution}</p>
       <p className="text-xs text-gray-400">{education.period}</p>
-      <p className="text-xs text-gray-500 mb-3">{education.degree}</p>
+      <p className="text-xs text-gray-500 mb-1">{education.degree}</p>
     </div>
   );
 }
@@ -76,7 +76,7 @@ function ProjectsSection({ projects, label }) {
     <div>
       <SectionHeading>{label}</SectionHeading>
       {projects.map((project) => (
-        <div key={project.name} className="mb-2">
+        <div key={project.name} className="mb-1">
           <p className="font-bold text-sm text-black">{project.name}</p>
           <p className="text-xs text-gray-500">{project.description}</p>
           <a href={project.url} className="text-xs text-[#3772b5] hover:underline">

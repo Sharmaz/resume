@@ -106,12 +106,12 @@ const resumeEs = {
     },
     {
       name: "create-enchilada",
-      description: "Una herramienta CLI para iniciar aplicaciones web.",
+      description: "CLI Tool para iniciar apps web.",
       url: "https://www.npmjs.com/package/create-enchilada",
     },
     {
       name: "phoenixd-mcp-server",
-      description: "Conecta un nodo bitcoin phoenixd a tus LLMs.",
+      description: "Conecta un nodo de phoenixd a tus LLMs.",
       url: "https://www.npmjs.com/package/phoenixd-mcp-server",
     },
   ],

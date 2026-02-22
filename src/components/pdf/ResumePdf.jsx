@@ -1,10 +1,12 @@
 import { Document, Font, Page, View, Text, Link, StyleSheet } from "@react-pdf/renderer";
 
+Font.registerHyphenationCallback((word) => [word]);
+
 Font.register({
   family: "Ubuntu",
   fonts: [
-    { src: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu@latest/latin-400-normal.woff2", fontWeight: 400 },
-    { src: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu@latest/latin-700-normal.woff2", fontWeight: 700 },
+    { src: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu@latest/latin-400-normal.ttf", fontWeight: 400 },
+    { src: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu@latest/latin-700-normal.ttf", fontWeight: 700 },
   ],
 });
 
@@ -22,9 +24,9 @@ const styles = StyleSheet.create({
     fontFamily: "Ubuntu",
     fontSize: 9,
     color: colors.darkGray,
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingHorizontal: 35,
+    paddingTop: 22,
+    paddingBottom: 22,
+    paddingHorizontal: 30,
   },
   // Header
   headerName: {
@@ -37,17 +39,24 @@ const styles = StyleSheet.create({
   headerLinks: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 10,
-    fontSize: 8.5,
-    marginBottom: 16,
+    marginBottom: 10,
   },
-  headerLink: {
+  headerLinkItem: {
+    width: "50%",
+    marginBottom: 2,
+  },
+  headerLinkLabel: {
+    fontSize: 8.5,
     color: colors.gray,
+  },
+  headerLinkValue: {
+    fontSize: 8.5,
+    color: colors.link,
   },
   // Layout
   columns: {
     flexDirection: "row",
-    gap: 20,
+    gap: 16,
   },
   leftColumn: {
     flex: 3,
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.blue,
     paddingBottom: 2,
-    marginBottom: 8,
+    marginBottom: 4,
   },
   // Experience
   jobContainer: {
@@ -82,7 +91,7 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   jobPeriod: {
-    fontSize: 8.5,
+    fontSize: 9,
     color: colors.lightGray,
   },
   bullet: {
@@ -96,7 +105,7 @@ const styles = StyleSheet.create({
   },
   bulletText: {
     flex: 1,
-    fontSize: 8.5,
+    fontSize: 9.5,
     color: colors.gray,
   },
   // Skills
@@ -108,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   skillList: {
-    marginBottom: 6,
+    marginBottom: 2,
   },
   skillItem: {
     flexDirection: "row",
@@ -130,11 +139,11 @@ const styles = StyleSheet.create({
   eduDegree: {
     fontSize: 8.5,
     color: colors.gray,
-    marginBottom: 8,
+    marginBottom: 4,
   },
   // Projects
   projectContainer: {
-    marginBottom: 6,
+    marginBottom: 2,
   },
   projectName: {
     fontFamily: "Ubuntu",
@@ -167,10 +176,30 @@ function Header({ header }) {
     <View>
       <Text style={styles.headerName}>{header.name}</Text>
       <View style={styles.headerLinks}>
-        <Link src={`mailto:${header.email}`} style={styles.headerLink}>Email:{header.email}</Link>
-        <Link src={header.website} style={styles.headerLink}>Portfolio:{websiteDisplay}</Link>
-        <Link src={header.github} style={styles.headerLink}>Github:{githubDisplay}</Link>
-        <Link src={header.linkedin} style={styles.headerLink}>LinkedIn:{linkedinDisplay}</Link>
+        <View style={styles.headerLinkItem}>
+          <Text style={styles.headerLinkLabel}>
+            {"Email: "}
+            <Link src={`mailto:${header.email}`} style={styles.headerLinkValue}>{header.email}</Link>
+          </Text>
+        </View>
+        <View style={styles.headerLinkItem}>
+          <Text style={styles.headerLinkLabel}>
+            {"Portfolio: "}
+            <Link src={header.website} style={styles.headerLinkValue}>{websiteDisplay}</Link>
+          </Text>
+        </View>
+        <View style={styles.headerLinkItem}>
+          <Text style={styles.headerLinkLabel}>
+            {"Github: "}
+            <Link src={header.github} style={styles.headerLinkValue}>{githubDisplay}</Link>
+          </Text>
+        </View>
+        <View style={styles.headerLinkItem}>
+          <Text style={styles.headerLinkLabel}>
+            {"LinkedIn: "}
+            <Link src={header.linkedin} style={styles.headerLinkValue}>{linkedinDisplay}</Link>
+          </Text>
+        </View>
       </View>
     </View>
   );
