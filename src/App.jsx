@@ -1,20 +1,23 @@
 import { useState } from 'react';
+import resumeEn from './data/resume-en';
+import resumeEs from './data/resume-es';
+import ResumeWeb from './components/web/ResumeWeb';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import DownloadButton from './components/DownloadButton';
+
+const dataByLang = { en: resumeEn, es: resumeEs };
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [lang, setLang] = useState('en');
+  const data = dataByLang[lang];
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-neutral-800">
-      <img src="https://raw.githubusercontent.com/Sharmaz/enchilada/refs/heads/main/media/enchilada-js-logo.svg" width="250" alt="enchiladajs logo"/>
-      <div className="p-8">
-        <button
-          className="bg-neutral-900 px-4 py-2 rounded-lg text-slate-200 w-[160px] border-1 border-transparent hover:border-[#FF9811] transition-colors duration-250 cursor-pointer"
-          onClick={() => setCount((counter) => counter + 1)}
-          type="button"
-        >
-          {`Enchiladas ${count}`}
-        </button>
+    <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <div className="flex justify-center items-center gap-4 mb-6">
+        <LanguageSwitcher lang={lang} onChangeLang={setLang} />
+        <DownloadButton data={data} lang={lang} />
       </div>
+      <ResumeWeb data={data} />
     </div>
   );
 }
