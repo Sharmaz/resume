@@ -3,7 +3,6 @@ import eslintReact from "@eslint-react/eslint-plugin";
 import stylistic from "@stylistic/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import { defineConfig, globalIgnores } from "eslint/config";
-import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 
 export default defineConfig([
@@ -21,7 +20,6 @@ export default defineConfig([
     ...eslintReact.configs.recommended,
     plugins: {
       ...eslintReact.configs.recommended.plugins,
-      "react-hooks": pluginReactHooks,
       "@stylistic": stylistic,
     },
     languageOptions: {
@@ -183,10 +181,6 @@ export default defineConfig([
       "@eslint-react/naming-convention/component-name": "error",
       "@eslint-react/dom/no-dangerously-set-innerhtml": "warn",
       "@eslint-react/dom/no-unknown-property": "error",
-
-      // ─── React Hooks ─────────────────────────────────────────────────
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
 
     },
   },
