@@ -3,8 +3,6 @@ import eslintReact from "@eslint-react/eslint-plugin";
 import stylistic from "@stylistic/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import { defineConfig, globalIgnores } from "eslint/config";
-import pluginImportX from "eslint-plugin-import-x";
-import pluginJest from "eslint-plugin-jest";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 
@@ -12,12 +10,8 @@ export default defineConfig([
   // Test files
   {
     files: ["**/__tests__/**/*.{js,jsx}", "**/*.test.{js,jsx}"],
-    plugins: { jest: pluginJest },
     languageOptions: {
       globals: { ...globals.jest },
-    },
-    rules: {
-      ...pluginJest.configs.recommended.rules,
     },
   },
 
@@ -28,7 +22,6 @@ export default defineConfig([
     plugins: {
       ...eslintReact.configs.recommended.plugins,
       "react-hooks": pluginReactHooks,
-      "import-x": pluginImportX,
       "@stylistic": stylistic,
     },
     languageOptions: {
@@ -195,18 +188,6 @@ export default defineConfig([
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
 
-      // ─── Imports ─────────────────────────────────────────────────────
-      "import-x/order": ["error", {
-        groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
-        pathGroups: [
-          { pattern: "react", group: "external", position: "before" },
-        ],
-        pathGroupsExcludedImportTypes: ["react"],
-        "newlines-between": "always",
-        alphabetize: { order: "asc", caseInsensitive: true },
-      }],
-      "import-x/newline-after-import": "error",
-      "import-x/no-duplicates": "error",
     },
   },
 
