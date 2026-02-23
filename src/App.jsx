@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import resumeEn from './data/resume-en';
-import resumeEs from './data/resume-es';
-import ResumeWeb from './components/web/ResumeWeb';
-import LanguageSwitcher from './components/LanguageSwitcher';
-import DownloadButton from './components/DownloadButton';
+import { useState } from "react";
+
+import DownloadButton from "./components/DownloadButton";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import ResumeWeb from "./components/web/ResumeWeb";
+import resumeEn from "./data/resume-en";
+import resumeEs from "./data/resume-es";
 
 const dataByLang = { en: resumeEn, es: resumeEs };
 
 function App() {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState("en");
   const data = dataByLang[lang];
 
   return (
